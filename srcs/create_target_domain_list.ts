@@ -27,9 +27,9 @@ function create_target_domain_list() {
 	SHEET.setRowHeight(1, 40);
 	SHEET.setFrozenRows(1);
 	let targetDomainList: Array<Array<string>>;
-	if (SHEET.getSheetName() == 'DomainInfoFtp')
+	if (SHEET.getSheetName() == 'RemoveInfoFtp')
 		targetDomainList = get_target_domain_list('登録中ドメイン（FTPサーバー）')
-	else if (SHEET.getSheetName() == 'DomainInfo123')
+	else if (SHEET.getSheetName() == 'RemoveInfo123')
 		targetDomainList = get_target_domain_list('登録中ドメイン（123サーバー）')
 	SHEET.getRange(2, 1, targetDomainList.length, 2)
 		.setValues(targetDomainList)
