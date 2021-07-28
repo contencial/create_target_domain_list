@@ -1,7 +1,7 @@
 function create_target_domain_list() {
 	let confirmation = Browser.msgBox('ドメインリスト抽出処理', '本当に実行しますか？', Browser.Buttons.OK_CANCEL);
 	if (confirmation == "cancel") {
-		return;
+		return ;
 	}
 
 	const SHEET = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -31,6 +31,8 @@ function create_target_domain_list() {
 		targetDomainList = get_target_domain_list('登録中ドメイン（FTPサーバー）')
 	else if (SHEET.getSheetName() == 'RemoveInfo123')
 		targetDomainList = get_target_domain_list('登録中ドメイン（123サーバー）')
+	if (targetDomainList.length < 1)
+		return ;
 	SHEET.getRange(2, 1, targetDomainList.length, 2)
 		.setValues(targetDomainList)
 		.setFontFamily('Meiryo');
