@@ -25,6 +25,8 @@ function create_remove_target(SHEET) {
 	SHEET.getRange('B1').setValue('ドメイン名').setBackground('#c9daf8');
 	SHEET.getRange('C1').setValue('Size').setBackground('#c9daf8');
 	SHEET.getRange('D1').setValue('=ArrayFormula(match(0,len(B2:B),0))-1');
+	SHEET.getRange('F1').setValue(Utilities.formatDate(new Date(), 'JST', 'yyyy-MM-dd'))
+		.setBackground('#efefef');
 	SHEET.getRange('A1:D1').setFontFamily('Meiryo')
 		.setFontWeight('bold')
 	SHEET.getRange('A1:F1').setFontFamily('Meiryo')
@@ -52,8 +54,6 @@ function create_remove_target(SHEET) {
 	SHEET.getRange(2, 1, targetDomainList.length, 2)
 		.setValues(targetDomainList)
 		.setFontFamily('Meiryo');
-	SHEET.getRange('F1').setValue(Utilities.formatDate(new Date(), 'JST', 'yyyy-MM-dd'))
-		.setBackground('#efefef');
 	SHEET.getRange(1, 1, SHEET.getLastRow(), 2).createFilter();
 }
 

@@ -18,6 +18,8 @@ function create_upload_target() {
 	SHEET.getRange('D1').setValue('データ番号').setBackground('#c9daf8');
 	SHEET.getRange('E1').setValue('アップロード数').setBackground('#f9cb9c');
 	SHEET.getRange('F1').setValue('=ArrayFormula(match(0,len(B2:B),0))-1');
+	SHEET.getRange('H1').setValue(Utilities.formatDate(new Date(), 'JST', 'yyyy-MM-dd'))
+		.setBackground('#efefef');
 	SHEET.getRange('A1:F1').setFontFamily('Meiryo')
 		.setFontWeight('bold')
 	SHEET.getRange('A1:H1').setFontFamily('Meiryo')
@@ -44,8 +46,6 @@ function create_upload_target() {
 	SHEET.getRange(2, 1, targetDomainList.length, 4)
 		.setValues(targetDomainList)
 		.setFontFamily('Meiryo');
-	SHEET.getRange('H1').setValue(Utilities.formatDate(new Date(), 'JST', 'yyyy-MM-dd'))
-		.setBackground('#efefef');
 	SHEET.getRange(1, 1, SHEET.getLastRow(), 4).createFilter();
 }
 
