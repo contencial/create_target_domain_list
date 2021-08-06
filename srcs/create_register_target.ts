@@ -50,8 +50,8 @@ function get_register_target() {
 	const TARGET_SHEET = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Main');
 	
 	const LAST_ROW = TARGET_SHEET.getLastRow();
-	let domainList: Array<Array<string>> = TARGET_SHEET.getRange(`A3:M${LAST_ROW}`).getValues();
-	domainList = domainList.filter(data => !data[12])
-		.map(data => [data[0], data[4]]);
+	let domainList: Array<Array<string>> = TARGET_SHEET.getRange(`A3:N${LAST_ROW}`).getValues();
+	domainList = domainList.filter(data => !data[13])
+		.map(data => [data[0], data[5]]);
 	return domainList;
 }
