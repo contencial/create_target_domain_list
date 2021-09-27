@@ -54,8 +54,8 @@ function get_upload_target() {
 	const TARGET_SHEET = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName('Main');
 	
 	const LAST_ROW = TARGET_SHEET.getLastRow();
-	let domainList: Array<Array<string>> = TARGET_SHEET.getRange(`A3:R${LAST_ROW}`).getValues();
+	let domainList: Array<Array<string>> = TARGET_SHEET.getRange(`A3:Q${LAST_ROW}`).getValues();
 	domainList = domainList.filter(data => !data[11])
-		.map(data => [data[0], data[5], data[16], data[17]]);
+		.map(data => [data[0], data[5], data[15], data[16]]);
 	return domainList;
 }
